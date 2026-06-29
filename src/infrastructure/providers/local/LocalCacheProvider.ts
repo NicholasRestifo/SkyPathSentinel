@@ -1,10 +1,10 @@
-import { ICacheProvider } from '../../interfaces/ICacheProvider';
+import { CacheProvider } from '../../interfaces/CacheProvider';
 import { Result, success } from '../../../types/result';
 import { PATHS } from '../../../constants/paths';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
-export class LocalCacheProvider implements ICacheProvider {
+export class LocalCacheProvider implements CacheProvider {
   private cacheDir: string;
 
   constructor(cacheDir: string = PATHS.CACHE) {

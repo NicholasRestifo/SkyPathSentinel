@@ -1,6 +1,6 @@
 import { ENV, DATA_MODE } from '../constants';
 import { StorageProvider } from './interfaces/StorageProvider';
-import { ICacheProvider } from './interfaces/ICacheProvider';
+import { CacheProvider } from './interfaces/CacheProvider';
 import { AirportFetcher } from './interfaces/AirportFetcher';
 import { WeatherFetcher } from './interfaces/WeatherFetcher';
 import { HazardFetcher } from './interfaces/HazardFetcher';
@@ -24,7 +24,7 @@ export class ProviderFactory {
     return new LocalStorageProvider();
   }
 
-  static getCacheProvider(): ICacheProvider {
+  static getCacheProvider(): CacheProvider {
     if (process.env.APP_ENV === ENV.PROD) {
       return new DeployedCacheProvider();
     }

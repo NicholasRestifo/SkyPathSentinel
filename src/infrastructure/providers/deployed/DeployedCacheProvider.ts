@@ -1,8 +1,8 @@
-import { ICacheProvider } from '../../interfaces/ICacheProvider';
+import { CacheProvider } from '../../interfaces/CacheProvider';
 import { Result, failure } from '../../../types/result';
 import { NotImplementedError } from '../../../errors/NotImplementedError';
 
-export class DeployedCacheProvider implements ICacheProvider {
+export class DeployedCacheProvider implements CacheProvider {
   async get(key: string): Promise<Result<string | null>> {
     return failure(new NotImplementedError());
   }
