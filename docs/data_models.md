@@ -49,12 +49,14 @@ Represents meteorological conditions at a specific location.
 
 ```typescript
 export interface WeatherProperties {
-  locationIdentifier: string; // Primary ID (e.g., ICAO)
+  identifier: string;
+  idType: 'ICAO' | 'WMO' | 'LOCAL';
   timestamp: string;          // ISO 8601
   conditions: 'VFR' | 'IFR' | 'LIFR' | 'UNKNOWN'; // Canonical classification
+  description: string;        // Human-readable summary (e.g., "Heavy Rain", "Fog")
   raw: string;                // Original raw report (for auditability)
 }
-export type WeatherFeature = Feature<WeatherProperties>;
+export type WeatherFeature = SpatialFeature<WeatherProperties, PointGeometry>;
 ```
 
 ### 2.3 Hazard
@@ -95,9 +97,11 @@ classDiagram
     }
     
     class WeatherProperties {
-        +string locationIdentifier
+        +string identifier
+        +string idType
         +string timestamp
         +string conditions
+        +string description
         +string raw
     }
     class WeatherFeature {
@@ -115,7 +119,7 @@ classDiagram
     Feature <|-- SpatialFeature
     SpatialFeature <|-- AirportFeature
     SpatialFeature <|-- HazardFeature
-    Feature <|-- WeatherFeature
+    SpatialFeature <|-- WeatherFeature
 ```
 
 ### 3.2 Data Ingestion Flow
