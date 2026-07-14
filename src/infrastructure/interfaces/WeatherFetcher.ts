@@ -1,4 +1,4 @@
 import { DataFetcher } from './DataFetcher';
-import { WeatherQuery, Weather } from '../../types/data';
+import { WeatherQuery, WeatherFeature } from '../../types/data';
 
-export interface WeatherFetcher extends DataFetcher<WeatherQuery, Weather> {}
+export interface WeatherFetcher extends DataFetcher<WeatherQuery, WeatherFeature> {}

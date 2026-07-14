@@ -1,4 +1,4 @@
 import { DataFetcher } from './DataFetcher';
-import { AirportQuery, Airport } from '../../types/data';
+import { AirportQuery, AirportFeature } from '../../types/data';
 
-export interface AirportFetcher extends DataFetcher<AirportQuery, Airport> {}
+export interface AirportFetcher extends DataFetcher<AirportQuery, AirportFeature> {}

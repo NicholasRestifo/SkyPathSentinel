@@ -14,7 +14,7 @@ import { DeployedStorageProvider } from './providers/deployed/DeployedStoragePro
 import { DeployedCacheProvider } from './providers/deployed/DeployedCacheProvider';
 import { DeployedDataFetcher } from './providers/deployed/DeployedDataFetcher';
 import { DeployedDataPopulator } from './providers/deployed/DeployedDataPopulator';
-import { AirportQuery, Airport, WeatherQuery, Weather, HazardQuery, Hazard } from '../types/data';
+import { AirportQuery, AirportFeature, WeatherQuery, WeatherFeature, HazardQuery, HazardFeature } from '../types/data';
 
 export class ProviderFactory {
   static getStorageProvider(): StorageProvider {
@@ -33,32 +33,32 @@ export class ProviderFactory {
 
   static getAirportFetcher(): AirportFetcher {
     if (process.env.APP_ENV === ENV.PROD) {
-      return new DeployedDataFetcher<AirportQuery, Airport>();
+      return new DeployedDataFetcher<AirportQuery, AirportFeature>();
     }
     if (process.env.DATA_MODE === DATA_MODE.CANNED) {
-      return new CannedDataFetcher<AirportQuery, Airport>();
+      return new CannedDataFetcher<AirportQuery, AirportFeature>();
     }
-    return new LiveApiFetcher<AirportQuery, Airport>();
+    return new LiveApiFetcher<AirportQuery, AirportFeature>();
   }
 
   static getWeatherFetcher(): WeatherFetcher {
     if (process.env.APP_ENV === ENV.PROD) {
-      return new DeployedDataFetcher<WeatherQuery, Weather>();
+      return new DeployedDataFetcher<WeatherQuery, WeatherFeature>();
     }
     if (process.env.DATA_MODE === DATA_MODE.CANNED) {
-      return new CannedDataFetcher<WeatherQuery, Weather>();
+      return new CannedDataFetcher<WeatherQuery, WeatherFeature>();
     }
-    return new LiveApiFetcher<WeatherQuery, Weather>();
+    return new LiveApiFetcher<WeatherQuery, WeatherFeature>();
   }
 
   static getHazardFetcher(): HazardFetcher {
     if (process.env.APP_ENV === ENV.PROD) {
-      return new DeployedDataFetcher<HazardQuery, Hazard>();
+      return new DeployedDataFetcher<HazardQuery, HazardFeature>();
     }
     if (process.env.DATA_MODE === DATA_MODE.CANNED) {
-      return new CannedDataFetcher<HazardQuery, Hazard>();
+      return new CannedDataFetcher<HazardQuery, HazardFeature>();
     }
-    return new LiveApiFetcher<HazardQuery, Hazard>();
+    return new LiveApiFetcher<HazardQuery, HazardFeature>();
   }
 
   static getDataPopulator(): DataPopulator {
