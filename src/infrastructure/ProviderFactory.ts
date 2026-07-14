@@ -14,7 +14,12 @@ import { DeployedStorageProvider } from './providers/deployed/DeployedStoragePro
 import { DeployedCacheProvider } from './providers/deployed/DeployedCacheProvider';
 import { DeployedDataFetcher } from './providers/deployed/DeployedDataFetcher';
 import { DeployedDataPopulator } from './providers/deployed/DeployedDataPopulator';
-import { AirportQuery, AirportFeature, WeatherQuery, WeatherFeature, HazardQuery, HazardFeature } from '../types/data';
+import { AirportQuery } from '../types/queries/AirportQuery';
+import { AirportFeature } from '../types/models/AirportFeature';
+import { WeatherQuery } from '../types/queries/WeatherQuery';
+import { WeatherFeature } from '../types/models/WeatherFeature';
+import { HazardQuery } from '../types/queries/HazardQuery';
+import { HazardFeature } from '../types/models/HazardFeature';
 
 export class ProviderFactory {
   static getStorageProvider(): StorageProvider {

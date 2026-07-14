@@ -1,4 +1,5 @@
 import { DataFetcher } from './DataFetcher';
-import { HazardQuery, HazardFeature } from '../../types/data';
+import { HazardQuery } from '../../types/queries/HazardQuery';
+import { HazardFeature } from '../../types/models/HazardFeature';
 
 export interface HazardFetcher extends DataFetcher<HazardQuery, HazardFeature> {}
