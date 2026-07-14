@@ -37,7 +37,7 @@ Represents a physical aviation facility.
 ```typescript
 export interface AirportProperties {
   identifier: string;    // e.g., 'KJFK'
-  dataSourceType: 'ICAO' | 'FAA' | 'IATA' | 'LOCAL';
+  dataSourceType: 'ICAO' | 'FAA' | 'IATA' | 'OTHER';
   name: string;
   countryCode: string;   // ISO 3166-1 alpha-2
 }
@@ -50,7 +50,7 @@ Represents meteorological conditions at a specific location.
 ```typescript
 export interface WeatherProperties {
   identifier: string;
-  dataSourceType: 'ICAO' | 'WMO' | 'LOCAL';
+  dataSourceType: 'ICAO' | 'WMO' | 'OTHER';
   timestamp: string;          // ISO 8601
   conditions: 'VFR' | 'IFR' | 'LIFR' | 'UNKNOWN'; // Canonical classification
   description: string;        // Human-readable summary (e.g., "Heavy Rain", "Fog")
