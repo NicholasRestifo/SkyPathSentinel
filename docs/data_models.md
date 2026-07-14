@@ -8,68 +8,26 @@ This document defines the internal, canonical data structures for SkyPath Sentin
 
 *   **Normalization:** All external data (CSV, XML, proprietary JSON) must be mapped to these canonical models during ingestion.
 *   **GeoJSON-First:** All spatial data is represented using GeoJSON standards to ensure compatibility with geospatial analysis libraries (e.g., `@turf/turf`).
-*   **Polymorphic Identification:** Identifiers are not assumed to be ICAO codes; they are structured as `identifier` + `idType` pairs.
+*   **Polymorphic Identification:** Identifiers are not assumed to be ICAO codes; they are structured as `identifier` + `dataSourceType` pairs.
 *   **Source Tracking:** Every model includes a `dataSource` field to allow for provenance tracking and debugging.
 *   **Type-Safe Hierarchy:**
     *   `Feature<TProperties>`: Base interface for descriptive data.
     *   `SpatialFeature<TProperties, TGeometry>`: Extends `Feature` for data with required geometry.
 
-### 1.1 Geometry Types
-To ensure strict GeoJSON compliance and compatibility with geospatial libraries (e.g., `@turf/turf`), we use the standard `GeoJSON` types from `@types/geojson`.
-
-```typescript
-import { Point, Polygon, LineString, Geometry } from 'geojson';
-
-export type PointGeometry = Point;
-export type PolygonGeometry = Polygon;
-export type LineStringGeometry = LineString;
-
-export type GeoJSONGeometry = Geometry;
-```
-
 ---
 
 ## 2. Canonical Models
 
+The models are defined in `src/types/models/`.
+
 ### 2.1 Airport
 Represents a physical aviation facility.
-
-```typescript
-export interface AirportProperties {
-  identifier: string;    // e.g., 'KJFK'
-  dataSourceType: 'ICAO' | 'FAA' | 'IATA' | 'OTHER';
-  name: string;
-  countryCode: string;   // ISO 3166-1 alpha-2
-}
-export type AirportFeature = SpatialFeature<AirportProperties, PointGeometry>;
-```
 
 ### 2.2 Weather
 Represents meteorological conditions at a specific location.
 
-```typescript
-export interface WeatherProperties {
-  identifier: string;
-  dataSourceType: 'ICAO' | 'WMO' | 'OTHER';
-  timestamp: string;          // ISO 8601
-  conditions: 'VFR' | 'IFR' | 'LIFR' | 'UNKNOWN'; // Canonical classification
-  description: string;        // Human-readable summary (e.g., "Heavy Rain", "Fog")
-  raw: string;                // Original raw report (for auditability)
-}
-export type WeatherFeature = SpatialFeature<WeatherProperties, PointGeometry>;
-```
-
 ### 2.3 Hazard
 Represents any constraint on flight operations (NOTAMs, Airspace, Weather Hazards).
-
-```typescript
-export interface HazardProperties {
-  type: 'WEATHER' | 'AIRSPACE' | 'NOTAM' | 'TERRAIN';
-  severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
-  description: string;        // Human-readable summary (e.g., "Runway Closed", "TFR")
-}
-export type HazardFeature = SpatialFeature<HazardProperties, PolygonGeometry>;
-```
 
 ---
 
