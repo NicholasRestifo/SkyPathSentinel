@@ -66,6 +66,7 @@ Represents any constraint on flight operations (NOTAMs, Airspace, Weather Hazard
 export interface HazardProperties {
   type: 'WEATHER' | 'AIRSPACE' | 'NOTAM' | 'TERRAIN';
   severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+  description: string;        // Human-readable summary (e.g., "Runway Closed", "TFR")
 }
 export type HazardFeature = SpatialFeature<HazardProperties, PolygonGeometry>;
 ```
@@ -111,6 +112,7 @@ classDiagram
     class HazardProperties {
         +string type
         +string severity
+        +string description
     }
     class HazardFeature {
         +HazardProperties properties
