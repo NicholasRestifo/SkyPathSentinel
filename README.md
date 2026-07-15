@@ -9,7 +9,7 @@ SkyPath Sentinel is a deterministic aviation intelligence and mission planning e
 - [Data Sources](docs/business/data_sources.md)
 
 ### Architecture
-- [Canonical Data Models](docs/architecture/MODELS.md)
+- [Canonical Data Models](docs/architecture/models.md)
 - [Data Ingestion Strategy](docs/roadmap/data_ingestion_strategy.md)
 - [Technical Stack & Dependencies](docs/architecture/tech_stack.md)
 
