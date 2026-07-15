@@ -3,9 +3,18 @@
 SkyPath Sentinel is a deterministic aviation intelligence and mission planning engine built as a Model Context Protocol (MCP) server.
 
 ## Project Documentation
-- [Business Plan](docs/business_plan.md)
-- [Technical Stack](docs/tech_stack.md)
-- [Dependencies](docs/dependencies.md)
+
+### Business
+- [Business Plan](docs/business/business_plan.md)
+- [Data Sources](docs/business/data_sources.md)
+
+### Architecture
+- [Canonical Data Models](docs/architecture/MODELS.md)
+- [Data Ingestion Strategy](docs/architecture/data_ingestion_strategy.md)
+- [Technical Stack & Dependencies](docs/architecture/tech_stack.md)
+
+### Project
+- [Dependencies](docs/project/dependencies.md)
 
 ## Useful commands
 

@@ -1,4 +1,4 @@
-# Dependencies & Libraries: SkyPath Sentinel
+# Dependencies: SkyPath Sentinel
 
 This document outlines the core libraries and dependencies chosen for the SkyPath Sentinel project, along with the justification for each choice.
 

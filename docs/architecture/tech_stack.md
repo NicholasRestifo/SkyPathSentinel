@@ -1,4 +1,4 @@
-# Technical Stack: SkyPath Sentinel
+# Technical Stack & Dependencies: SkyPath Sentinel
 
 SkyPath Sentinel is built on a serverless, type-safe architecture designed for scalability, low latency, and maintainability.
 
@@ -10,6 +10,15 @@ SkyPath Sentinel is built on a serverless, type-safe architecture designed for s
     *   *Justification:* Allows defining infrastructure using familiar TypeScript, ensuring consistency, version control, and ease of deployment.
 *   **Compute:** [AWS Lambda](https://aws.amazon.com/lambda/)
     *   *Justification:* Ideal for the event-driven, request-response nature of MCP tools. Scales automatically and minimizes costs by only running during active tool execution.
+
+## Core Dependencies
+
+*   **MCP SDK:** [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
+    *   *Justification:* Official SDK for building Model Context Protocol servers. Essential for seamless integration with LLM clients.
+*   **Geospatial Math:** [`@turf/turf`](https://turfjs.org/)
+    *   *Justification:* The industry standard for geospatial analysis in JavaScript/TypeScript. Provides robust, battle-tested algorithms for polygon-line intersection, which is critical for our deterministic safety layer.
+*   **HTTP Client:** [`axios`](https://axios-http.com/)
+    *   *Justification:* A widely-used, reliable, and feature-rich HTTP client. Excellent support for TypeScript and handles complex request/response scenarios well.
 
 ## Supporting Services
 
