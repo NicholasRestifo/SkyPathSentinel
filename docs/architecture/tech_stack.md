@@ -17,7 +17,7 @@ SkyPath Sentinel is built on a serverless, type-safe architecture designed for s
     *   *Justification:* Official SDK for building Model Context Protocol servers. Essential for seamless integration with LLM clients.
 *   **Geospatial Math:** [`@turf/turf`](https://turfjs.org/)
     *   *Justification:* The industry standard for geospatial analysis in JavaScript/TypeScript. Provides robust, battle-tested algorithms for polygon-line intersection, which is critical for our deterministic safety layer.
-*   **HTTP Client:** [`axios`](https://axios-http.com/)
+* **HTTP Client:** [`axios`](https://axios-http.com/)
     *   *Justification:* A widely-used, reliable, and feature-rich HTTP client. Excellent support for TypeScript and handles complex request/response scenarios well.
 
 ## Supporting Services
@@ -43,3 +43,12 @@ SkyPath Sentinel is built on a serverless, type-safe architecture designed for s
     *   **Integration Testing:** API interactions and data pipeline logic are validated using mocked external services to ensure robustness.
 *   **Observability & Monitoring:** [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) provides structured logging and custom metrics, allowing for real-time tracking of tool execution latency and API error rates.
 *   **Security & Secret Management:** [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) is used to securely manage API keys and sensitive configuration, adhering to best practices for production-grade applications.
+
+## Development Dependencies
+
+*   **Testing:** [`jest`](https://jestjs.io/)
+    *   *Justification:* The standard testing framework for TypeScript projects. Provides excellent support for unit and integration testing.
+*   **Linting/Formatting:** [`eslint`](https://eslint.org/) & [`prettier`](https://prettier.io/)
+    *   *Justification:* Ensures code quality, consistency, and adherence to best practices across the codebase.
+*   **IaC:** [`aws-cdk`](https://aws.amazon.com/cdk/)
+    *   *Justification:* Required for defining and deploying our serverless infrastructure.
